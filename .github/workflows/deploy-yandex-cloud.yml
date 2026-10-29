@@ -1,7 +1,5 @@
 name: Deploy to Yandex Object Storage
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
