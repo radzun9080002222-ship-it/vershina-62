@@ -26,6 +26,8 @@ test('initializes only the new counter and does not duplicate listeners or tag',
   assert.equal(s.calls().length, 1);
   assert.equal(s.listeners.click, before);
   assert.ok(!source.includes('112587504'));
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.ok(html.includes('/metrika.js?v=114341477'), 'versioned URL must bypass the old cached counter script');
 });
 test('tracks the four contacts including clicks on nested icons', () => {
   for (const [href, name] of [['tel:+79224539145','click_phone'],['https://wa.me/79224539145','click_whatsapp'],['https://t.me/vershina_cleaning','click_telegram'],['https://max.ru/u/example','click_max']]) {
